@@ -1,0 +1,29 @@
+# ---- Secrets (never share these) ----
+.env
+config/*
+!config/.gitkeep
+
+# ---- Personal, per-person notes (not shared) ----
+memory/local_*.md
+
+# ---- Local data and generated results ----
+data/*
+!data/.gitkeep
+output/*
+!output/.gitkeep
+
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# ---- Editor / OS ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Claude Code local state ----
+.claude/

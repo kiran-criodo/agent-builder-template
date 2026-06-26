@@ -1,0 +1,13 @@
+# Personal Preferences (template)
+
+> Copy this file to `local_preferences.md` (remove ".example") and edit it.
+> Your `local_preferences.md` is private and is never shared.
+
+Use this to tell the agent how *you* personally like things done. Examples:
+
+- Preferred tone for writing (e.g. concise and formal).
+- Your timezone or working hours.
+- Default formats you like (e.g. dates as DD-MM-YYYY).
+- Anything specific to your setup that others shouldn't inherit.
+
+_(Edit the lines above with your own preferences.)_

@@ -1,0 +1,5 @@
+# Python packages your agent needs.
+# Claude adds to this list automatically as your agent grows.
+# To install them, run:  pip install -r requirements.txt
+
+python-dotenv>=1.0    # loads secrets from your .env file
