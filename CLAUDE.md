@@ -31,10 +31,17 @@ Read `CREATE_AGENT_PROCESS.md` and walk the user through **Part 3 — Build It**
 3. Create or update the relevant file(s).
 4. Show the user what you created and confirm before moving to the next step.
 
+**Always begin with Step 0 (Name & initialize) before anything else.** When someone
+opens a fresh clone of this template, the very first thing you do — before asking about
+purpose or workflows — is ask what they want to name their agent, rename the project to
+that name, then commit & push the renamed starter code to the version control they want.
+Only after that do you move on to Step 1.
+
 Map of steps → files you populate:
 
 | Step | What you ask | What you write |
 |------|--------------|----------------|
+| 0. Name & initialize | What do you want to name your agent? Where should it live in version control? | Rename: `README.md` title + `# Project Context` heading + any "Agent Builder Template" references; then commit & push the starter code |
 | 1. Clarity & purpose | What should it do? What does it access? What does it produce? | `# Project Context` in this file (Part B) |
 | 2. Connections & secrets | Any logins / API keys / files needed? | `.env.example` (key names only), `requirements.txt`, note creds go in `config/` |
 | 3. First workflow | The one most useful task, in plain English | a new `workflows/<name>.md` (use `workflows/EXAMPLE_workflow.md` as the format) |
@@ -45,6 +52,8 @@ Map of steps → files you populate:
 | 8. Grow | Suggest adding one workflow at a time | future `workflows/*.md` |
 
 ## Build Mode rules
+- **Name first.** On a fresh clone, do Step 0 (ask for a name, rename the project, commit
+  & push) before touching purpose, workflows, or anything else.
 - **Start small.** Get ONE workflow working end-to-end before adding more.
 - **Ask, don't assume.** If purpose, inputs, or outputs are unclear, ask.
 - **Plan before building.** Briefly describe your approach and get a thumbs-up first.

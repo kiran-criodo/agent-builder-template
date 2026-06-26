@@ -109,6 +109,19 @@ When you say **"Let's start Building,"** Claude will walk you through the steps 
 manually if you prefer. After each step Claude shows you what it created so you can
 approve or adjust before moving on.
 
+### Step 0 — Name your agent & save the starter
+Before anything else, Claude asks: *What would you like to name your agent?* It then
+**renames** this starter project to your chosen name (updating the title in `README.md`,
+the project heading in `CLAUDE.md`, and any other "Agent Builder Template" references) so
+your agent has its own identity from the start.
+
+Claude then asks *where you'd like to keep it* in version control (for example, a new
+GitHub repository) and offers to **commit** (save a snapshot) and **push** (upload) the
+renamed starter code there. This gives you a clean, saved baseline before you build
+anything — so you can always step back to it. See `docs/GIT_GUIDE.md` if any of these
+words are new.
+→ Updates `README.md` and `CLAUDE.md`, then commits & pushes the starter code.
+
 ### Step 1 — Clarity & purpose
 Claude asks: *What should this agent do? What does it need access to? What should it
 produce?*
@@ -162,6 +175,7 @@ rebuilt from scratch.
 - [ ] Download (clone) this folder and open it in VSCode with the Claude extension.
 - [ ] Make sure Claude is connected (Pro plan or another supported LLM).
 - [ ] Type **"Let's start Building."**
+- [ ] Name your agent and let Claude save the renamed starter to version control.
 - [ ] Answer Claude's questions about purpose, connections, and outputs.
 - [ ] Approve the first workflow it designs.
 - [ ] Let it test the workflow and check the result in `output/`.
