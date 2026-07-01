@@ -3,6 +3,10 @@
 This explains how the pieces fit together. You don't need to understand all of it to use
 the agent, but it helps when you want to change or extend it.
 
+> **Any IDE, any LLM.** This template isn't tied to one editor or one model. It works in
+> any AI-enabled IDE (VSCode, Cursor, JetBrains, …) with any LLM that IDE supports (Claude,
+> GPT, Gemini, …). Below, "the assistant" means whichever one you use.
+
 ## The W-A-T idea
 
 Every agent here has three layers:
@@ -12,7 +16,7 @@ Every agent here has three layers:
                  │
                  ▼
    ┌───────────────────────────┐
-   │   AGENT  (Claude itself)   │   reads CLAUDE.md + memory/, picks the right recipe
+   │  AGENT (your AI assistant) │   reads CLAUDE.md + memory/, picks the right recipe
    └───────────────────────────┘
         │                     │
         ▼                     ▼
@@ -26,12 +30,14 @@ Every agent here has three layers:
 
 - **Workflows** (`workflows/`) — plain-English recipes. This is where most of your agent's
   intelligence lives. Start with one; add more over time.
-- **Agent** — Claude reads `CLAUDE.md` (the rulebook) and `memory/` (what it knows), then
-  follows the right workflow. You don't build this layer; it's Claude.
+- **Agent** — your AI assistant reads `CLAUDE.md` (the rulebook) and `memory/` (what it
+  knows), then follows the right workflow. You don't build this layer; it's the assistant.
+  (If your assistant reads a differently-named rulebook, e.g. `AGENTS.md`, copy or point it
+  at `CLAUDE.md`.)
 - **Tools & connectors** (`tools/`) — the actions used while working. Most are built in
   (read/write files, search the web). Connections to outside services come from a
   **ready-made connector** you authorize (e.g. Google Drive, Gmail, Notion, or any MCP
-  server) or from a small script Claude writes for you. See `CONNECTORS.md`.
+  server) or from a small script your assistant writes for you. See `CONNECTORS.md`.
 
 ## Input and output aren't limited to files
 

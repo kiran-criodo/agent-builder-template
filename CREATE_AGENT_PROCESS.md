@@ -2,12 +2,19 @@
 
 This is your complete, plain-English guide to building your own AI **agent** — even if
 you have never written a line of code. You build the whole thing just by **chatting**
-with Claude inside VSCode.
+with an AI assistant inside an AI-enabled code editor.
+
+> **Any IDE, any LLM.** This works in whatever AI-enabled IDE you prefer — VSCode, Cursor,
+> JetBrains, and others — with whatever LLM that IDE supports (Claude, GPT, Gemini, and
+> more). For readability this guide says "Claude" and "VSCode" as the running example;
+> read those as **"your AI assistant"** and **"your IDE."** The agent's rulebook lives in
+> `CLAUDE.md`; if your assistant reads a different filename (e.g. `AGENTS.md`), copy or
+> point it at that file.
 
 There are two ways to use this guide:
 
-- **Just say "Let's start Building."** Claude will read this file, then interview you
-  one question at a time and create all the files for you. This is the easiest path.
+- **Just say "Let's start Building."** Your assistant will read this file, then interview
+  you one question at a time and create all the files for you. This is the easiest path.
 - **Read it yourself first.** If you like understanding things before you start, read
   Parts 1–2 below, then say "Let's start Building" when you're ready.
 
@@ -49,8 +56,8 @@ Think of your agent as having three layers:
 1. **Workflows** — step-by-step instructions written in plain English (in files ending
    in `.md`). This is the **most important** layer. A workflow is like a recipe:
    "First do this, then do that." Example: a file called `weekly-report.md`.
-2. **Agent** — this is Claude itself. It reads your workflows and just *does* them. You
-   don't build this part; it comes for free.
+2. **Agent** — this is your AI assistant itself (Claude, or any LLM your IDE supports). It
+   reads your workflows and just *does* them. You don't build this part; it comes for free.
 3. **Tools & connectors** — the things the agent uses while working: reading and writing
    files, running a command, searching the web, **and connecting to outside services** —
    email, Google Drive / OneDrive, a database, Notion, WhatsApp, and so on. Most basic
@@ -119,9 +126,9 @@ anything later:
 2. Name the new repository after your agent (e.g. `weekly-sales-bot`), choose public or
    private, and click **Create repository**. You get a fresh repo with that name and a
    clean history (not a fork).
-3. **Clone** (download) your new repo to your computer — in VSCode: *Source Control →
-   Clone Repository*, or `git clone <your-new-repo-url>`.
-4. Open the folder in VSCode and type **"Let's start Building."**
+3. **Clone** (download) your new repo to your computer — via your IDE's *Clone Repository*
+   command (in VSCode: *Source Control → Clone Repository*), or `git clone <your-new-repo-url>`.
+4. Open the folder in your AI-enabled IDE and type **"Let's start Building."**
 
 Naming the repo now means both the online repo **and** your local folder already carry
 your agent's name. Step 0 below then just tidies up the name *inside* the files.
@@ -159,20 +166,20 @@ When you say **"Let's start Building,"** Claude will walk you through the steps 
 manually if you prefer. After each step Claude shows you what it created so you can
 approve or adjust before moving on.
 
-### Step 0 — Name your agent & save the starter
-If you followed **Part 1.5** and created your repo from the template, the repo and folder
-are already named after your agent — great. Claude just confirms the name, then updates
-the leftover template text *inside* the files: the title in `README.md`, the project
-heading in `CLAUDE.md`, and any remaining "Agent Builder Template" references. It then
-**commits** (saves a snapshot) and **pushes** (uploads) this clean baseline so you can
-always step back to it. See `docs/GIT_GUIDE.md` if any of these words are new.
+### Step 0 — Personalize & save the starter baseline
+You already named your agent when you created the repo from the template (**Part 1.5**),
+so there's nothing to rename here. Step 0 just tidies up and saves a clean starting point:
+your assistant confirms the name, replaces the leftover template text *inside* the files
+(the title in `README.md`, the project heading in `CLAUDE.md`, and any remaining "Agent
+Builder Template" references), then **commits** (saves a snapshot) and **pushes** (uploads)
+this baseline to your repo so you can always step back to it. See `docs/GIT_GUIDE.md` if
+any of these words are new.
 
-If you instead cloned the template folder directly (so it's still called
-"Agent Builder Template"), Claude asks *What would you like to name your agent?* and, as a
-fallback, updates the in-file text and the online repo name — and gives you the one
-command to rename the local folder when convenient (you'll reopen that folder in VSCode).
-→ Updates `README.md` and `CLAUDE.md` to your agent's name, then commits & pushes the
-starter code.
+*Only if you skipped the template and cloned the starter directly* (so it's still called
+"Agent Builder Template"), your assistant also asks *What would you like to name your
+agent?*, updates the in-file text and the online repo name, and gives you the one command
+to rename the local folder when convenient (you'll reopen that folder in your IDE).
+→ Updates `README.md` and `CLAUDE.md`, then commits & pushes the starter baseline.
 
 ### Step 1 — Clarity & purpose
 Claude asks: *What should this agent do? What does it need access to? What should it
@@ -238,11 +245,11 @@ rebuilt from scratch.
 ## Part 4 — Quick-Start Checklist
 
 - [ ] Click **Use this template** on GitHub and create a new repo named after your agent.
-- [ ] Clone your new repo and open it in VSCode with the Claude extension.
-- [ ] Make sure Claude is connected (Pro plan or another supported LLM).
+- [ ] Clone your new repo and open it in your AI-enabled IDE (e.g. VSCode with the Claude extension).
+- [ ] Make sure your AI assistant is connected (any LLM your IDE supports).
 - [ ] Type **"Let's start Building."**
-- [ ] Confirm your agent's name and let Claude tidy the in-file references and save the baseline.
-- [ ] Answer Claude's questions about purpose, connections, and outputs.
+- [ ] Confirm your agent's name and let the assistant tidy the in-file references and save the baseline.
+- [ ] Answer the assistant's questions about purpose, connections, and outputs.
 - [ ] Approve the first workflow it designs.
 - [ ] Let it test the workflow and check the result in `output/`.
 - [ ] Save and share (commit & push).
@@ -250,18 +257,23 @@ rebuilt from scratch.
 
 ---
 
-## Part 5 — Handy Claude Code Tips
+## Part 5 — Handy Tips
 
-- **`/init`** — Generates or refreshes the `CLAUDE.md` rulebook for the project.
-- **`/plan`** — Puts Claude in "planning mode." It designs an approach and shows it to
-  you *before* doing anything. Great for thinking before building.
-- **`/effort`** — Set how much effort Claude puts in: `high`, `medium`, or `low`.
-- **`/compact`** — In a long chat, this tidies up the conversation so Claude keeps
-  working smoothly without losing track.
-- **"Revert to here"** — Hover over an earlier point in the conversation and choose this
-  to go back to how things were at that moment (handy if a change didn't work out).
-- **Save your `.md` files** — Your workflow recipes are reusable. Copy good ones into
+These work with any AI-enabled IDE and assistant:
+
+- **Ask it to plan first.** Say *"plan your approach before doing anything"* so you can
+  review the steps before it builds. Most assistants also have a built-in planning mode.
+- **Undo when needed.** If a change didn't work out, you can go back — either with git (see
+  `docs/GIT_GUIDE.md`) or your assistant's own "revert / undo" control in the chat panel.
+- **Keep long chats tidy.** In a very long conversation, start a fresh one (or use your
+  assistant's "compact/summarize" feature if it has one) so it keeps working smoothly.
+- **Reuse your `.md` files.** Your workflow recipes are portable — copy good ones into
   future agents to get a head start.
+
+> **Using Claude Code?** It has handy slash commands: `/init` (create/refresh the
+> `CLAUDE.md` rulebook), `/plan` (planning mode), `/effort` (set high/medium/low effort),
+> and `/compact` (tidy a long chat). Other assistants have their own equivalents — check
+> your IDE's docs.
 
 ---
 
@@ -276,4 +288,4 @@ rebuilt from scratch.
 
 ---
 
-**Ready?** Open this folder in VSCode and type **"Let's start Building."**
+**Ready?** Open this folder in your AI-enabled IDE and type **"Let's start Building."**

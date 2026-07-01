@@ -22,9 +22,10 @@ For services that don't have a drop-in connector, the agent writes a short scrip
 calls the service's API. Your login key/token goes in **`.env`** (kept private, never
 shared) and its *name* goes in **`.env.example`** so others know what they'd need.
 
-> **What's an MCP server?** MCP (Model Context Protocol) is a standard way for a tool or
-> service to plug into Claude. Many ready-made connectors are MCP servers under the hood.
-> If a service offers an MCP server, that's the clean "ready-made connector" path.
+> **What's an MCP server?** MCP (Model Context Protocol) is an open standard for plugging a
+> tool or service into an AI assistant — supported by Claude and a growing number of other
+> assistants/IDEs. Many ready-made connectors are MCP servers under the hood. If a service
+> offers an MCP server, that's the clean "ready-made connector" path.
 
 ---
 
@@ -42,9 +43,10 @@ Saving to the `output/` folder is just *one* option for output — not a require
 
 ## Commonly available ready-made connectors
 
-These are typically available to authorize (sign in once). Availability depends on your
-Claude setup; check your **claude.ai connector settings**, or `claude mcp` / `/mcp` in an
-interactive Claude Code session.
+These are typically available to authorize (sign in once). **Which connectors exist and
+where you turn them on depends on your assistant/IDE.** For Claude, check your **claude.ai
+connector settings**, or `claude mcp` / `/mcp` in an interactive Claude Code session; other
+assistants have their own connector/MCP settings.
 
 | Service | Typical use |
 |---|---|
@@ -54,9 +56,9 @@ interactive Claude Code session.
 | **Notion** | Read/write pages and databases |
 
 > **Authorizing needs an interactive session.** The sign-in (OAuth) flow can't run in a
-> non-interactive/automated session. Authorize the connector once in an interactive Claude
-> Code session or in your claude.ai connector settings; after that the agent uses it
-> normally.
+> non-interactive/automated session. Authorize the connector once in an interactive session
+> of your assistant (for Claude: an interactive Claude Code session or your claude.ai
+> connector settings); after that the agent uses it normally.
 
 ---
 

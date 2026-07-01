@@ -19,9 +19,11 @@
 > ask for help getting started.
 
 ## Your role in Build Mode
-You are guiding a **non-coder** through building a Claude Code agent **entirely by
-prompting**. They will not write code — you write any code for them. Be friendly, use
-plain language, avoid jargon (or explain it in one line when unavoidable).
+You are guiding a **non-coder** through building an AI agent **entirely by prompting**.
+(This template is IDE- and model-agnostic — it works in any AI-enabled IDE with any LLM
+that IDE supports; you are whichever assistant they're using.) They will not write code —
+you write any code for them. Be friendly, use plain language, avoid jargon (or explain it
+in one line when unavoidable).
 
 ## How to run the build
 Read `CREATE_AGENT_PROCESS.md` and walk the user through **Part 3 — Build It**, going
@@ -36,16 +38,17 @@ Read `CREATE_AGENT_PROCESS.md` and walk the user through **Part 3 — Build It**
 *that* — so the repo and local folder already carry the agent's name before the build
 starts. Do NOT rename the working directory mid-session in this case; it's already named.
 
-**Always begin with Step 0 (Name & initialize) before anything else.** Before asking
-about purpose or workflows:
-1. Ask/confirm the agent's name. Derive a repo-safe slug (lowercase, hyphens, e.g.
-   "Weekly Sales Bot" → `weekly-sales-bot`).
+**Always begin with Step 0 (Personalize & save baseline) before anything else.** In the
+normal template flow the repo is already named, so Step 0 is mostly tidy-up + saving a
+baseline. Before asking about purpose or workflows:
+1. Confirm the agent's name. (Derive a repo-safe slug — lowercase, hyphens, e.g.
+   "Weekly Sales Bot" → `weekly-sales-bot` — only needed for the fallback below.)
 2. Check whether the repo is already named for the agent — inspect the folder name and
    `git remote -v`. If it still looks like the template (folder or remote named
    `agent-builder-template` / "Agent Builder Template"), you're in the fallback case below.
 3. Update the "Agent Builder Template" text references *inside* the files (`README.md`
    title, `# Project Context` heading, any other mentions).
-4. Commit & push this clean baseline.
+4. Commit & push this clean baseline to the user's repo.
 Only after that do you move on to Step 1.
 
 **Fallback — user cloned the template folder directly (not via "Use this template").**
@@ -53,14 +56,14 @@ The folder/remote are still template-named. In addition to the in-file text upda
 - If a remote exists, rename it to match — e.g. `gh repo rename <slug>`. If none exists,
   create the new repo under the slug when you push.
 - Tell the user the one command to rename their local folder when convenient (`mv` from
-  the parent directory), and that they'll reopen the renamed folder in VSCode. Don't
+  the parent directory), and that they'll reopen the renamed folder in their IDE. Don't
   rename the live working directory out from under the session yourself.
 
 Map of steps → files you populate:
 
 | Step | What you ask | What you write |
 |------|--------------|----------------|
-| 0. Name & initialize | What do you want to name your agent? (Repo already named via "Use this template"?) | Update in-file references: `README.md` title + `# Project Context` heading + any "Agent Builder Template" mentions; then commit & push. Fallback (direct clone): also rename the remote + tell user how to rename the folder |
+| 0. Personalize & save baseline | Confirm the agent's name (already set via "Use this template"). | Update in-file references: `README.md` title + `# Project Context` heading + any "Agent Builder Template" mentions; then commit & push the baseline. Fallback (direct clone): also name it + rename the remote + tell user how to rename the folder |
 | 1. Clarity & purpose | What should it do? Where does input come from & where does output go (files or connectors)? What does it produce? | `# Project Context` in this file (Part B) |
 | 2. Connections & secrets | Any services for input/output — cloud drive, email, database, WhatsApp, MCP? Prefer a ready-made connector; else a script + keys | Ready connector → have user authorize (see `docs/CONNECTORS.md`). Else: `.env.example` (key names only), `requirements.txt`, note creds go in `config/`, script in `tools/` |
 | 3. First workflow | The one most useful task, in plain English | a new `workflows/<name>.md` (use `workflows/EXAMPLE_workflow.md` as the format) |

@@ -2,10 +2,16 @@
 
 Follow these once to get your computer ready. After this, you build everything by chatting.
 
+> **Any IDE, any LLM.** These steps use **VSCode + the Claude extension** as an example,
+> but any AI-enabled IDE works — Cursor, JetBrains, and others — with whatever LLM that
+> IDE supports (Claude, GPT, Gemini, …). Substitute your own editor and assistant below.
+
 ## 1. Install the tools you need
-- **VSCode** — the editor you'll work in. (Free download from the official site.)
-- **The Claude extension for VSCode** — install it from the Extensions panel in VSCode.
-- **Claude access** — sign in with a Claude Pro plan (or another supported LLM).
+- **An AI-enabled IDE** — the editor you'll work in (e.g. VSCode, Cursor, or a JetBrains
+  IDE). Free downloads from their official sites.
+- **An AI assistant in that IDE** — e.g. the Claude extension for VSCode, installed from
+  the editor's extensions panel. (Use whichever assistant your IDE offers.)
+- **Assistant access** — sign in to your assistant with any LLM your IDE supports.
 - **Python** (only if your agent will run scripts) — install Python 3.10 or newer.
 
 ## 2. Get your own copy onto your computer
@@ -17,8 +23,9 @@ This project is a **GitHub template**. Make your own named copy first:
 That way your folder is already named after your agent. If you already have the folder,
 skip this.
 
-## 3. Open the folder in VSCode
-File → Open Folder → choose this folder. Then open the Claude panel.
+## 3. Open the folder in your IDE
+Open Folder → choose this folder (in VSCode: File → Open Folder). Then open your AI
+assistant's panel.
 
 ## 4. Add your secrets (only if your agent needs logins or keys)
 - Make a copy of `.env.example` and name the copy `.env`.
@@ -26,19 +33,19 @@ File → Open Folder → choose this folder. Then open the Claude panel.
 - Never share the `.env` file — it stays on your computer automatically.
 
 ## 5. Install Python packages (only if your agent uses scripts)
-In VSCode's terminal, run:
+In your IDE's terminal, run:
 ```
 pip install -r requirements.txt
 ```
 
 ## 6. Start building
-In the Claude panel, type:
+In your AI assistant's panel, type:
 
 > **Let's start Building**
 
-Claude takes it from there. If you ever get stuck, open `CREATE_AGENT_PROCESS.md`.
+Your assistant takes it from there. If you ever get stuck, open `CREATE_AGENT_PROCESS.md`.
 
 ## Troubleshooting
-- **Claude isn't responding** — check you're signed in and connected.
-- **A script fails** — tell Claude the error message; it will fix it.
+- **Your assistant isn't responding** — check you're signed in and connected.
+- **A script fails** — tell your assistant the error message; it will fix it.
 - **A secret isn't found** — confirm it's in `.env` (not `.env.example`) and spelled the same.

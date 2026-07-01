@@ -1,7 +1,14 @@
 # Agent Builder Template
 
-A starter folder for building your own AI **agent** in VSCode — **no coding required**.
-You build the whole thing just by chatting with Claude.
+A starter folder for building your own AI **agent** in any AI-enabled code editor —
+**no coding required**. You build the whole thing just by chatting with an AI assistant.
+
+> **Works with any IDE and any LLM.** Use whatever AI-enabled IDE you like — VSCode,
+> Cursor, JetBrains, and others — with whatever LLM that IDE supports (Claude, GPT,
+> Gemini, and more). This guide uses **Claude in VSCode** as the running example; wherever
+> you see "Claude" or "VSCode," substitute your own assistant and editor. The agent's
+> rulebook lives in `CLAUDE.md`; if your assistant reads a different filename (for example
+> `AGENTS.md`), copy or point it at that file.
 
 ## Step 1 — Make your own copy from this template
 
@@ -13,8 +20,9 @@ your own copy, already named after your agent:
 2. Give the new repository **your agent's name** (e.g. `weekly-sales-bot`), pick
    public or private, and click **Create repository**. GitHub makes a brand-new repo with
    that name and a clean history — not a fork of the template.
-3. **Clone** (download) your new repo to your computer — in VSCode: *Source Control →
-   Clone Repository → pick your new repo*, or run `git clone <your-new-repo-url>`.
+3. **Clone** (download) your new repo to your computer — via your IDE's *Clone
+   Repository* command (in VSCode: *Source Control → Clone Repository*), or run
+   `git clone <your-new-repo-url>`.
 
 Because you named the repo up front, your folder already carries your agent's name — no
 renaming needed later.
@@ -25,19 +33,20 @@ renaming needed later.
 
 ## Step 2 — Start building
 
-Open your new folder in VSCode with the Claude extension, make sure Claude is connected,
-and type:
+Open your new folder in your AI-enabled IDE (e.g. VSCode with the Claude extension),
+make sure the AI assistant is connected, and type:
 
 > **Let's start Building**
 
-Claude will then interview you step by step and create everything for you.
+Your assistant will then interview you step by step and create everything for you.
 
 ## What's here
 
 - **`CREATE_AGENT_PROCESS.md`** — the full, plain-English guide. Read it first if you
   like, or just say "Let's start Building" and follow along.
 - **`CLAUDE.md`** — the agent's rulebook. It also contains the guided-build instructions
-  Claude follows while helping you.
+  your assistant follows while helping you. (If your assistant reads a different filename,
+  such as `AGENTS.md`, copy or point it at this file.)
 - **`docs/SETUP.md`** — how to set up your computer (one-time).
 - **`docs/CONNECTORS.md`** — connecting your agent to outside services (cloud drive,
   email, databases, WhatsApp, MCP servers) for input *and* output.
