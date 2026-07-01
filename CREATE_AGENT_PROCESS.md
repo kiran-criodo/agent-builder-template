@@ -84,6 +84,30 @@ called `.env.example` is shared instead, so others know what keys *they* need to
 
 ---
 
+## Part 1.5 — Get Your Own Copy (name it up front)
+
+This starter is a **GitHub template repository**. The easiest way to begin is to stamp
+out your own copy that's already named after your agent — so you never have to rename
+anything later:
+
+1. On the template's GitHub page, click the green **Use this template** button →
+   **Create a new repository**.
+2. Name the new repository after your agent (e.g. `weekly-sales-bot`), choose public or
+   private, and click **Create repository**. You get a fresh repo with that name and a
+   clean history (not a fork).
+3. **Clone** (download) your new repo to your computer — in VSCode: *Source Control →
+   Clone Repository*, or `git clone <your-new-repo-url>`.
+4. Open the folder in VSCode and type **"Let's start Building."**
+
+Naming the repo now means both the online repo **and** your local folder already carry
+your agent's name. Step 0 below then just tidies up the name *inside* the files.
+
+*No GitHub account?* You can instead `git clone
+https://github.com/kiran-criodo/agent-builder-template.git your-agent-name` to download
+the starter into a folder named after your agent, and publish it online later.
+
+---
+
 ## Part 2 — Before You Build: Get Clear
 
 The single biggest thing that makes an agent good is **clarity** up front. Before
@@ -110,17 +134,19 @@ manually if you prefer. After each step Claude shows you what it created so you 
 approve or adjust before moving on.
 
 ### Step 0 — Name your agent & save the starter
-Before anything else, Claude asks: *What would you like to name your agent?* It then
-**renames** this starter project to your chosen name (updating the title in `README.md`,
-the project heading in `CLAUDE.md`, and any other "Agent Builder Template" references) so
-your agent has its own identity from the start.
+If you followed **Part 1.5** and created your repo from the template, the repo and folder
+are already named after your agent — great. Claude just confirms the name, then updates
+the leftover template text *inside* the files: the title in `README.md`, the project
+heading in `CLAUDE.md`, and any remaining "Agent Builder Template" references. It then
+**commits** (saves a snapshot) and **pushes** (uploads) this clean baseline so you can
+always step back to it. See `docs/GIT_GUIDE.md` if any of these words are new.
 
-Claude then asks *where you'd like to keep it* in version control (for example, a new
-GitHub repository) and offers to **commit** (save a snapshot) and **push** (upload) the
-renamed starter code there. This gives you a clean, saved baseline before you build
-anything — so you can always step back to it. See `docs/GIT_GUIDE.md` if any of these
-words are new.
-→ Updates `README.md` and `CLAUDE.md`, then commits & pushes the starter code.
+If you instead cloned the template folder directly (so it's still called
+"Agent Builder Template"), Claude asks *What would you like to name your agent?* and, as a
+fallback, updates the in-file text and the online repo name — and gives you the one
+command to rename the local folder when convenient (you'll reopen that folder in VSCode).
+→ Updates `README.md` and `CLAUDE.md` to your agent's name, then commits & pushes the
+starter code.
 
 ### Step 1 — Clarity & purpose
 Claude asks: *What should this agent do? What does it need access to? What should it
@@ -172,10 +198,11 @@ rebuilt from scratch.
 
 ## Part 4 — Quick-Start Checklist
 
-- [ ] Download (clone) this folder and open it in VSCode with the Claude extension.
+- [ ] Click **Use this template** on GitHub and create a new repo named after your agent.
+- [ ] Clone your new repo and open it in VSCode with the Claude extension.
 - [ ] Make sure Claude is connected (Pro plan or another supported LLM).
 - [ ] Type **"Let's start Building."**
-- [ ] Name your agent and let Claude save the renamed starter to version control.
+- [ ] Confirm your agent's name and let Claude tidy the in-file references and save the baseline.
 - [ ] Answer Claude's questions about purpose, connections, and outputs.
 - [ ] Approve the first workflow it designs.
 - [ ] Let it test the workflow and check the result in `output/`.

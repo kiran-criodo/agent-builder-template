@@ -27,11 +27,22 @@ You can say things like:
 
 Claude handles the exact commands. You just describe what you want.
 
-## First time only
+## Starting from the template
 
-To put a brand-new agent online for others, you'll need a home for it (for example a
-free GitHub account and an empty repository). Ask Claude: *"Help me publish this repo to
-GitHub"* and follow its steps.
+This starter is a **GitHub template repository**. The easiest way to begin is to make
+your own copy from it, already named after your agent:
+
+1. On the template's GitHub page, click **Use this template → Create a new repository**.
+2. Name it after your agent (e.g. `weekly-sales-bot`) and create it — you get a fresh
+   repo with a clean history (not a fork).
+3. **Clone** your new repo to your computer.
+
+Your online repo and your local folder now both carry your agent's name from the start.
+
+## Publishing later (if you didn't use the template)
+
+If you already have the folder and just want to put it online, ask Claude: *"Help me
+publish this repo to GitHub"* and follow its steps.
 
 ## A safety note
 

@@ -8,9 +8,14 @@ Follow these once to get your computer ready. After this, you build everything b
 - **Claude access** — sign in with a Claude Pro plan (or another supported LLM).
 - **Python** (only if your agent will run scripts) — install Python 3.10 or newer.
 
-## 2. Get this folder onto your computer
-If someone shared a link to this project (a "git repo"), **clone** (download) it. See
-`GIT_GUIDE.md` for exactly how. If you already have the folder, skip this.
+## 2. Get your own copy onto your computer
+This project is a **GitHub template**. Make your own named copy first:
+- On the template's GitHub page, click **Use this template → Create a new repository**,
+  name it after your agent (e.g. `weekly-sales-bot`), and create it.
+- Then **clone** (download) *your new repo* to your computer. See `GIT_GUIDE.md` for how.
+
+That way your folder is already named after your agent. If you already have the folder,
+skip this.
 
 ## 3. Open the folder in VSCode
 File → Open Folder → choose this folder. Then open the Claude panel.

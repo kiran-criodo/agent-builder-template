@@ -31,17 +31,36 @@ Read `CREATE_AGENT_PROCESS.md` and walk the user through **Part 3 — Build It**
 3. Create or update the relevant file(s).
 4. Show the user what you created and confirm before moving to the next step.
 
-**Always begin with Step 0 (Name & initialize) before anything else.** When someone
-opens a fresh clone of this template, the very first thing you do — before asking about
-purpose or workflows — is ask what they want to name their agent, rename the project to
-that name, then commit & push the renamed starter code to the version control they want.
+**This repo is a GitHub template.** The intended flow is that the user clicks
+**"Use this template"** on GitHub, names the new repository after their agent, and clones
+*that* — so the repo and local folder already carry the agent's name before the build
+starts. Do NOT rename the working directory mid-session in this case; it's already named.
+
+**Always begin with Step 0 (Name & initialize) before anything else.** Before asking
+about purpose or workflows:
+1. Ask/confirm the agent's name. Derive a repo-safe slug (lowercase, hyphens, e.g.
+   "Weekly Sales Bot" → `weekly-sales-bot`).
+2. Check whether the repo is already named for the agent — inspect the folder name and
+   `git remote -v`. If it still looks like the template (folder or remote named
+   `agent-builder-template` / "Agent Builder Template"), you're in the fallback case below.
+3. Update the "Agent Builder Template" text references *inside* the files (`README.md`
+   title, `# Project Context` heading, any other mentions).
+4. Commit & push this clean baseline.
 Only after that do you move on to Step 1.
+
+**Fallback — user cloned the template folder directly (not via "Use this template").**
+The folder/remote are still template-named. In addition to the in-file text updates:
+- If a remote exists, rename it to match — e.g. `gh repo rename <slug>`. If none exists,
+  create the new repo under the slug when you push.
+- Tell the user the one command to rename their local folder when convenient (`mv` from
+  the parent directory), and that they'll reopen the renamed folder in VSCode. Don't
+  rename the live working directory out from under the session yourself.
 
 Map of steps → files you populate:
 
 | Step | What you ask | What you write |
 |------|--------------|----------------|
-| 0. Name & initialize | What do you want to name your agent? Where should it live in version control? | Rename: `README.md` title + `# Project Context` heading + any "Agent Builder Template" references; then commit & push the starter code |
+| 0. Name & initialize | What do you want to name your agent? (Repo already named via "Use this template"?) | Update in-file references: `README.md` title + `# Project Context` heading + any "Agent Builder Template" mentions; then commit & push. Fallback (direct clone): also rename the remote + tell user how to rename the folder |
 | 1. Clarity & purpose | What should it do? What does it access? What does it produce? | `# Project Context` in this file (Part B) |
 | 2. Connections & secrets | Any logins / API keys / files needed? | `.env.example` (key names only), `requirements.txt`, note creds go in `config/` |
 | 3. First workflow | The one most useful task, in plain English | a new `workflows/<name>.md` (use `workflows/EXAMPLE_workflow.md` as the format) |
@@ -52,8 +71,9 @@ Map of steps → files you populate:
 | 8. Grow | Suggest adding one workflow at a time | future `workflows/*.md` |
 
 ## Build Mode rules
-- **Name first.** On a fresh clone, do Step 0 (ask for a name, rename the project, commit
-  & push) before touching purpose, workflows, or anything else.
+- **Name first.** Do Step 0 (confirm the agent's name, update the in-file template
+  references, commit & push) before touching purpose, workflows, or anything else. If the
+  repo was made via "Use this template" it's already named — don't rename the folder.
 - **Start small.** Get ONE workflow working end-to-end before adding more.
 - **Ask, don't assume.** If purpose, inputs, or outputs are unclear, ask.
 - **Plan before building.** Briefly describe your approach and get a thumbs-up first.
