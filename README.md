@@ -39,6 +39,8 @@ Claude will then interview you step by step and create everything for you.
 - **`CLAUDE.md`** — the agent's rulebook. It also contains the guided-build instructions
   Claude follows while helping you.
 - **`docs/SETUP.md`** — how to set up your computer (one-time).
+- **`docs/CONNECTORS.md`** — connecting your agent to outside services (cloud drive,
+  email, databases, WhatsApp, MCP servers) for input *and* output.
 - **`docs/GIT_GUIDE.md`** — sharing your agent with others, in plain language.
 - Folders (`workflows/`, `tools/`, `memory/`, …) — the agent's parts, filled in as you
   build.

@@ -28,8 +28,18 @@ Every agent here has three layers:
   intelligence lives. Start with one; add more over time.
 - **Agent** — Claude reads `CLAUDE.md` (the rulebook) and `memory/` (what it knows), then
   follows the right workflow. You don't build this layer; it's Claude.
-- **Tools** (`tools/`) — the actions used while working. Most are built in (read/write
-  files, search the web). Some need a small script, which Claude writes for you.
+- **Tools & connectors** (`tools/`) — the actions used while working. Most are built in
+  (read/write files, search the web). Connections to outside services come from a
+  **ready-made connector** you authorize (e.g. Google Drive, Gmail, Notion, or any MCP
+  server) or from a small script Claude writes for you. See `CONNECTORS.md`.
+
+## Input and output aren't limited to files
+
+Both what the agent **reads** and what it **produces** can be a connector — a cloud drive,
+an email account, a database, a messaging app (WhatsApp), or any MCP server. A workflow
+can read from Google Drive and send the result as an email with no file ever saved to
+disk. The `output/` folder is for *file* results; connector destinations are equally
+valid. See `CONNECTORS.md` for the full picture and the connector-vs-script decision.
 
 ## What each folder is for
 
@@ -40,7 +50,7 @@ Every agent here has three layers:
 | `memory/` | Facts the agent remembers across sessions. |
 | `config/` | Private credential files. Never shared. |
 | `data/` | Local data the agent works with. Not shared. |
-| `output/` | Where results are saved. |
+| `output/` | Where *file* results are saved (output can also go to a connector). |
 | `resources/` | Reference material you provide (templates, sample data). |
 | `tests/` | Quick checks that results are correct. |
 | `docs/` | Setup and help documents (you're reading one). |

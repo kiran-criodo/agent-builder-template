@@ -51,11 +51,35 @@ Think of your agent as having three layers:
    "First do this, then do that." Example: a file called `weekly-report.md`.
 2. **Agent** — this is Claude itself. It reads your workflows and just *does* them. You
    don't build this part; it comes for free.
-3. **Tools** — the things the agent uses while working: reading and writing files,
-   running a command, searching the web, sending email, reading a database, and so on.
-   Most tools are built in. Some need a small script or a login key.
+3. **Tools & connectors** — the things the agent uses while working: reading and writing
+   files, running a command, searching the web, **and connecting to outside services** —
+   email, Google Drive / OneDrive, a database, Notion, WhatsApp, and so on. Most basic
+   tools are built in. Connections to services come either from a ready-made **connector**
+   or from a small **script** (see the next section).
 
 You mostly spend your time writing good **Workflows**. The Agent and Tools do the rest.
+
+### Connectors: where the agent's input and output can live
+
+Your agent is **not limited to files on your disk**. Both the **input** it reads and the
+**output** it produces can flow through a **connector** — a live link to an outside
+service. A connector can be a **cloud drive** (Google Drive, OneDrive), an **email
+account**, a **database**, a **messaging service** (WhatsApp), a note tool (Notion), or
+any **MCP server** (a standard way for tools to plug into Claude).
+
+So a workflow can, for example: read a spreadsheet **from Google Drive**, look up rows
+**in a database**, and send the result **as an email** or **a WhatsApp message** — with no
+file ever touching your disk. Files on disk (in `output/`) are just one option, not a
+requirement.
+
+There are two ways to wire up a connection, and Claude picks the right one in **Step 2**:
+
+- **A ready-made connector (easiest — usually no code).** Some services already have a
+  connector you just **authorize** once (sign in). Google Drive, Gmail, Google Calendar,
+  and Notion are commonly available this way. See `docs/CONNECTORS.md`.
+- **A small script (for anything without a ready connector).** For services like OneDrive
+  or WhatsApp, Claude writes a short script in `tools/` that talks to the service's API,
+  with your login key kept private in `.env`.
 
 ### The folder layout (you don't need to memorize this)
 
@@ -116,10 +140,12 @@ will help you refine these):
 
 1. **Use cases** — What do you want the agent to do? (e.g. "summarize my weekly sales,"
    "research a topic and write a report," "check a website every morning.")
-2. **Inputs / connections / tools** — What does it need access to? (e.g. a spreadsheet,
-   a website, an email account, a database, an API key.)
-3. **Outputs** — What should it produce? (e.g. a report saved as a file, an email sent,
-   an updated spreadsheet.)
+2. **Inputs / connections / tools** — Where does its input come from? A file, a website,
+   an email account, a **cloud drive** (Google Drive / OneDrive), a **database**, a
+   messaging app, or any **MCP connector**. Input does **not** have to be a file on disk.
+3. **Outputs** — What should it produce, and **where should the result go**? A file in
+   `output/`, an email sent, a WhatsApp message, a row written to a database, a file
+   uploaded to a cloud drive, a page created in Notion. Output can go to a connector too.
 
 That's enough to start. **Start small.** Build one useful thing first, get it working,
 then add more later.
@@ -154,11 +180,22 @@ produce?*
 → Claude fills in the **`# Project Context`** section of `CLAUDE.md` with your answers.
 
 ### Step 2 — Connections & secrets
-Claude asks: *Does it need any logins, API keys, or files to connect to?*
-→ If yes, Claude adds the needed key names to **`.env.example`** (blank template) and
-tells you exactly where to paste your real values into **`.env`** (kept private). Any
-required software is noted in **`requirements.txt`**.
-→ If no, this step is skipped.
+Claude asks: *Where does your input come from and where should output go — files, or an
+outside service like Google Drive, OneDrive, email, a database, or WhatsApp?*
+
+For each service, Claude decides **how** to connect it:
+- **Ready-made connector?** If the service already has one (e.g. Google Drive, Gmail,
+  Calendar, Notion — see `docs/CONNECTORS.md`), you just **authorize** it once by signing
+  in. No code, and usually no keys to paste. (Authorizing happens in an interactive Claude
+  session or your claude.ai connector settings.)
+- **No connector yet?** For services like OneDrive or WhatsApp, Claude writes a small
+  script in `tools/`, adds the needed **key names** to **`.env.example`** (blank template),
+  and tells you exactly where to paste your real values into **`.env`** (kept private).
+  Any required software is noted in **`requirements.txt`**.
+
+Remember: both **input and output** can be a connector — the agent doesn't need files on
+disk unless you want them.
+→ If the agent only works with local files and the web, this step is skipped.
 
 ### Step 3 — Design your first workflow (in plain English)
 Claude asks about the **one** most useful task you want first. It then writes that task
@@ -168,7 +205,9 @@ as plain-English steps and shows it to you for approval.
 
 ### Step 4 — Build any tools needed
 If the workflow needs something beyond reading/writing files or searching the web (for
-example, connecting to a service), Claude writes a small script for you.
+example, connecting to a service), Claude sets it up. If a **ready-made connector** covers
+it (see Step 2 and `docs/CONNECTORS.md`), no script is needed — you just authorize it.
+Otherwise Claude writes a small script for you.
 → Saved in **`tools/`**. You never have to write or understand the code — but it's there
 if you ever want to look.
 

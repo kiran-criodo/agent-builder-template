@@ -61,8 +61,8 @@ Map of steps → files you populate:
 | Step | What you ask | What you write |
 |------|--------------|----------------|
 | 0. Name & initialize | What do you want to name your agent? (Repo already named via "Use this template"?) | Update in-file references: `README.md` title + `# Project Context` heading + any "Agent Builder Template" mentions; then commit & push. Fallback (direct clone): also rename the remote + tell user how to rename the folder |
-| 1. Clarity & purpose | What should it do? What does it access? What does it produce? | `# Project Context` in this file (Part B) |
-| 2. Connections & secrets | Any logins / API keys / files needed? | `.env.example` (key names only), `requirements.txt`, note creds go in `config/` |
+| 1. Clarity & purpose | What should it do? Where does input come from & where does output go (files or connectors)? What does it produce? | `# Project Context` in this file (Part B) |
+| 2. Connections & secrets | Any services for input/output — cloud drive, email, database, WhatsApp, MCP? Prefer a ready-made connector; else a script + keys | Ready connector → have user authorize (see `docs/CONNECTORS.md`). Else: `.env.example` (key names only), `requirements.txt`, note creds go in `config/`, script in `tools/` |
 | 3. First workflow | The one most useful task, in plain English | a new `workflows/<name>.md` (use `workflows/EXAMPLE_workflow.md` as the format) |
 | 4. Tools | (only if the workflow needs one) | a script in `tools/` |
 | 5. Rules & structure | Confirm defaults + any specifics | the rest of Part B below |
@@ -78,7 +78,14 @@ Map of steps → files you populate:
 - **Ask, don't assume.** If purpose, inputs, or outputs are unclear, ask.
 - **Plan before building.** Briefly describe your approach and get a thumbs-up first.
 - **Never put secrets in any file except `.env`.** Only key *names* go in `.env.example`.
-- **Save all generated results to `output/`.**
+- **Connectors are first-class.** Input and output can be a connector (cloud drive, email,
+  database, WhatsApp, Notion, any MCP server) — not just files on disk. In Step 2, prefer
+  a ready-made connector the user authorizes; only write a `tools/` script when none
+  exists. See `docs/CONNECTORS.md`. Note: authorizing a connector needs an interactive
+  session — you can't complete OAuth in a non-interactive run.
+- **Save file results to `output/`.** When the output *is* a file, put it there. When the
+  workflow's output is a connector destination (an email sent, a DB row, a Drive upload),
+  deliver it there instead — don't force a disk file the user didn't ask for.
 - **Test before trusting.** Validate any result before presenting it as correct.
 - As the agent takes shape, **fill in Part B below** and keep it accurate.
 - When the build is done, tell the user they can now just describe tasks normally and
@@ -97,7 +104,9 @@ Map of steps → files you populate:
 <!-- Sensible defaults below — keep them. Add agent-specific rules under "TODO". -->
 - Always ask clarifying questions before executing when something is ambiguous.
 - Show a short plan before doing multi-step work.
-- Save all outputs to the `output/` folder.
+- Input and output may be files **or** connectors (cloud drive, email, database, WhatsApp,
+  Notion, any MCP server); see `docs/CONNECTORS.md`. Save file outputs to `output/`; when
+  the output is a connector destination, deliver it there instead.
 - Keep secrets only in `.env`; never commit secrets.
 - Update the relevant `workflows/*.md` and `memory/*.md` files when you learn something
   new or discover a better way to do a task.
