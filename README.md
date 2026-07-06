@@ -40,6 +40,11 @@ make sure the AI assistant is connected, and type:
 
 Your assistant will then interview you step by step and create everything for you.
 
+> **Tip — you can schedule it.** Once a workflow works, your agent doesn't have to be run
+> by hand every time. Most AI-enabled assistants can run a workflow **periodically** (e.g.
+> every morning, or once an hour) — just ask yours in plain English. See *"Running Your
+> Agent on a Schedule"* in [`CREATE_AGENT_PROCESS.md`](CREATE_AGENT_PROCESS.md).
+
 ## What's here
 
 - **`CREATE_AGENT_PROCESS.md`** — the full, plain-English guide. Read it first if you

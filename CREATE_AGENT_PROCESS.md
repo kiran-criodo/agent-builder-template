@@ -242,6 +242,40 @@ rebuilt from scratch.
 
 ---
 
+## Part 3.5 — Running Your Agent on a Schedule (optional)
+
+Once a workflow works, you usually run it **on demand** — you open the folder and ask the
+agent to do the task. But many workflows are naturally recurring ("every morning,"
+"every Monday," "once an hour"). You don't have to trigger those by hand: your agent can
+be set up to **run periodically, on its own**.
+
+**This is a feature of your AI assistant / IDE, not of the template.** The template
+defines *what* your agent does (its workflows); the scheduling comes from the tool you run
+it in. Most modern AI-enabled assistants offer one or both of:
+
+- **Scheduled runs (cron-style).** Tell the assistant to run a workflow on a repeating
+  schedule (e.g. every day at 8am). It then runs unattended in the background, even when
+  you're not there. Many tools call these "scheduled agents," "routines," or "cron jobs."
+- **Interval / repeat runs.** Repeat a task every few minutes/hours while a session is
+  open — handy for polling something (e.g. "check this page every 15 minutes").
+
+Because the exact command differs per assistant, just **ask yours in plain English** —
+for example: *"Run my `weekly-report` workflow every Monday at 9am."* It will set up the
+schedule using whatever mechanism it supports, or tell you how. (In Claude Code, for
+instance, this is done with its scheduling command; other assistants have their own.)
+
+> **⚠️ Authorize connectors first.** A scheduled/unattended run happens **without you
+> there**, so it **can't** do the one-time sign-in (OAuth) that a connector needs. If your
+> workflow uses a connector (Google Drive, Gmail, a database, etc. — see
+> `docs/CONNECTORS.md`), **authorize it once in a normal interactive session first**, then
+> put the workflow on a schedule. After that it runs on its own.
+
+**Good candidates for scheduling:** daily/weekly reports, morning digests, periodic
+website or inbox checks, regular data pulls. **Start by running it manually a few times**
+so you trust the result — *then* put it on a schedule.
+
+---
+
 ## Part 4 — Quick-Start Checklist
 
 - [ ] Click **Use this template** on GitHub and create a new repo named after your agent.
