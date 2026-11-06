@@ -3,3 +3,4 @@
 # To install them, run:  pip install -r requirements.txt
 
 python-dotenv>=1.0    # loads secrets from your .env file
+requests>=2.31       # HTTP calls; tools use the read-only session in tools/_guardrails.py

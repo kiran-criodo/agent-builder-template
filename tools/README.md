@@ -11,4 +11,6 @@ Notes:
 - Each script should do one clear job and print a clear result.
 - If a script needs an extra Python package, Claude adds it to `requirements.txt`.
 
-This folder starts empty (apart from this note). It fills up as your agent grows.
+This folder starts with one shared helper, `_guardrails.py`, which keeps read-only agents
+read-only (see the note at the top of that file). Everything else fills up as your agent
+grows.

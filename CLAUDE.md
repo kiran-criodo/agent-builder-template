@@ -111,6 +111,10 @@ Map of steps → files you populate:
   Notion, any MCP server); see `docs/CONNECTORS.md`. Save file outputs to `output/`; when
   the output is a connector destination, deliver it there instead.
 - Keep secrets only in `.env`; never commit secrets.
+- If this agent only reads from outside systems, make every HTTP call through
+  `tools/_guardrails.session()` and check SQL with `assert_read_only_sql()` before running
+  it. Keep `tests/test_guardrails.py` passing. Agents that must write (send email, create
+  tickets) use an explicit, reviewed write path instead.
 - Update the relevant `workflows/*.md` and `memory/*.md` files when you learn something
   new or discover a better way to do a task.
 - Test outputs for validity before presenting results; if unsure, ask for more context
@@ -128,6 +132,7 @@ Map of steps → files you populate:
 - `output/` — Where the agent saves its results.
 - `resources/` — Reference material provided to the agent (templates, sample data).
 - `tests/` — Quick checks that confirm tools and outputs are correct.
+- `examples/` — A worked example (workflow + tool + test) to copy from. Not part of the agent.
 - `docs/` — Setup and help documentation.
 <!-- TODO (Step 5): note any agent-specific folders or files here. -->
 
